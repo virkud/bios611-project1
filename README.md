@@ -42,7 +42,7 @@ For example, to build figures relating to the distribution of ICU visits due to 
 
 Primary questions
 -----------------
-The primary question is to identify and characterize features predictive of mortality in heart failure patients. This will be conducted in two step: 
+The primary question is to identify and characterize features predictive of mortality in heart failure patients. This will be conducted in two steps: 
 1) We will examine a variety of features (demographic information, medications, and lab results) to identify predictors of mortality in this patient poulation using logistic regression, LASSO, and Elastic Net.
 2) We will characterize propensity scores for medications identified in the first step using logistic regression and Random forest. 
 
