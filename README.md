@@ -27,7 +27,12 @@ Dataset
 -------
 This project uses MIMIC-IV. This is a retrospectively collected datasource containing ICU and EHR data. You can obtain more information on it here: physionet.org/content/mimiciv/0.4/.
 
-You may need to request a DUA to access this data.
+Citations:
+Johnson, A., Bulgarelli, L., Pollard, T., Horng, S., Celi, L. A., & Mark, R. (2020). MIMIC-IV (version 0.4). PhysioNet. https://doi.org/10.13026/a3wn-hq05.
+Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
+
+You may need to request a DUA to access this data. Please contact me for the derived dataset used for this analysis. 
+
 
 Preliminary figures
 -------------------
