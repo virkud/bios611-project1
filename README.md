@@ -2,7 +2,7 @@ Bios 611-Project 1
 ================
 Analysis of MIMIC-4
 -------------------
-This repo will eventually contain an analysis of Heart Failure patients in the ICU.
+This repo will eventually contain an analysis of Heart Failure patients in the ICU. This analysis will be conducted in Rstudio, for which the script is contained in Analysis.R.
 
 Using This Project
 ------------------
@@ -19,9 +19,9 @@ Makefile
 --------
 The Makefile included in this repository will help get a feel of the project. 
 
-For example, to build figures relating to the distribution of ICU visits due to heart failure over race, enter via Docker or with Rstudio and say:
+For example, to build figures relating to the distribution of ICU visits due to heart failure over race compaired to all ICU visits, enter via Docker or with Rstudio and say:
 
-	> make figures/hf_race_comparison.png
+	> make figures/hfvicu_race_cmpr.png
 
 Dataset
 -------
