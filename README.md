@@ -9,12 +9,13 @@ Heart failure is a debilitating disease that effects about 6.2 million adults in
 according to the CDC. While the risk factors for heart failure are known and have been extensively 
 studied, the prevalence of known risk factors are evolving. Additionally, new medications and therapies 
 are being introduced all the time. These changes mean that our understanding of what predicts heart 
-failure may be changing as well. Wouldn't it be great to understand what are the *current* drivers 
-of mortality in this population? 
+failure may be changing as well. So what are the *current* drivers of mortality in this population? 
 
 ### Dataset
-This project uses MIMIC-IV. This is a retrospectively collected datasource containing ICU and EHR data. 
-You can obtain more information on it here: physionet.org/content/mimiciv/0.4/.
+This project uses MIMIC-IV. This is a retrospectively collected datasource containing EHR data from 
+Beth Israel Deaconess Medical Center (BIDMC). 
+You can obtain more information on it here: physionet.org/content/mimiciv/0.4/
+and https://mimic-iv.mit.edu/docs/overview/concepts/.
 
 Citations:
 Johnson, A., Bulgarelli, L., Pollard, T., Horng, S., Celi, L. A., & Mark, R. (2020). MIMIC-IV (version 0.4). 
@@ -30,7 +31,7 @@ this analysis.
 This analysis will be conducted in Rstudio, for which the script is contained in Analysis.R.
 
 ### Preliminary figures
-Age, race and sex among heart failure ICU patients compared with all other ICU patients.
+Age and sex among heart failure ICU patients compared with all other ICU patients.
 
 
 Using This Project
