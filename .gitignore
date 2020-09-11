@@ -2,3 +2,8 @@
 .rstudio/*
 .bash_history
 .dockerignore
+.gitconfig
+.viminfo
+data/
+sshkeys
+sshkeys.pub
