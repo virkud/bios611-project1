@@ -1,2 +1,4 @@
 .local/*
 .rstudio/*
+.bash_history
+.dockerignore
