@@ -49,9 +49,9 @@ Makefile
 The Makefile included in this repository will help get a feel of the project. 
 
 For example, to build figures relating to the distribution of ICU visits due to heart failure over 
-race compaired to all ICU visits, enter via Docker or with Rstudio and say:
+age and gender, enter via Docker or with Rstudio and say:
 
-	> make figures/hfvicu_race_cmpr.png
+	> make figures/hf_age_sex.png
 
 Primary questions
 -----------------
