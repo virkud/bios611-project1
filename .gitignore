@@ -7,3 +7,68 @@
 data/
 sshkeys
 sshkeys.pub
+derived_data/*.csv
+figures/*.png
+figures/*.pdf
+figures/*.html
+
+tagged_reports/*
+
+report.pdf 
+
+.lesshst
+
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# network security
+/network-security.data
+
+Rplots.pdf
+.bash_history
+
+fragments/*.tex
+fragments/*.Rmd
