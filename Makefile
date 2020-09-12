@@ -10,3 +10,9 @@ figures/all_age_sex.png\
 	derived_data/hf_dem.csv\
 	derived_data/all_dem.csv
 		Rscript Analysis.R
+
+assets/hf_age_sex.png: figures/hf_age_sex.png
+	cp figures/hf_age_sex.png assets/hf_age_sex.png
+
+assets/all_age_sex.png: figures/all_age_sex.png
+	cp figures/all_age_sex.png assets/all_age_sex.png
