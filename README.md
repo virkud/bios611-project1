@@ -32,7 +32,15 @@ This analysis will be conducted in Rstudio, for which the script is contained in
 
 ### Preliminary figures
 Age and sex among heart failure ICU patients compared with all other ICU patients.
+![](figures/all_age_sex.png)
 
+The above figure shows that there are a range of patients captures in this dataset, but most
+are older adults.
+
+![](figures/hf_age_sex.png)
+
+Most heart failure patients are older adults. Many more individuals in the highest age group (91) are female
+than male.
 
 Using This Project
 ------------------
