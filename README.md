@@ -25,8 +25,8 @@ Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., .
 PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex 
 physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
 
-You may need to request a DUA to access this data. Please contact me for the derived dataset used for 
-this analysis. 
+You will need to request a DUA to access this data. 
+
 
 This analysis will be conducted in Rstudio, for which the script is contained in Analysis.R.
 
