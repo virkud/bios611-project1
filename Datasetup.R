@@ -1,5 +1,6 @@
 library(tidyverse)
 library(data.table)
+library(RSQLite)
 
 #loading datasets
 #setwd("~/source_data/physionet.org/files/mimiciv/0.4/icu")
@@ -34,4 +35,9 @@ hf_dat <- dx %>% filter(icd_version==9 & substr(icd_code,1,3) %in%("428") & seq_
           left_join(., patients) %>% left_join(., charts)
 write_csv(hf_dat, "~/derived_data/hf_data.csv")
 
-
+icu_chart <- dbConnect(RSQLite::SQLite(), "events.db")
+dbExecute (icu_chart, "CREATE TABLE chart (subject_id INTEGER,hadm_id INTEGER, stay_id INTEGER,
+          charttime TEXT, storetime TEXT, itemid INTEGER, value INTEGER, valuenum INTEGER,
+           valueuom TEXT, warning INTEGER) ;")
+dbExecute(icu_chart,".mode csv
+.import file.headless.csv chart")
