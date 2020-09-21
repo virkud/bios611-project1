@@ -1,5 +1,4 @@
 library(tidyverse)
-library(ggplot2)
 library(gridExtra)
 library(reshape2)
 library(plyr)
