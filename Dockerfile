@@ -1,8 +1,6 @@
 FROM rocker/verse
 MAINTAINER Arti Virkud <avirkud@unc.edu>
-RUN R -e "install.packages('tidyverse')"
-RUN R -e "install.packages('data.table')"
-RUN R -e "install.packages('gridExtra')"
-RUN R -e "install.packages('XML')"
-RUN R -e "install.packages('reshape2')"
-RUN R -e "install.packages('plyr')"
+USER root
+RUN apt update -y && apt install -y sqlite3
+RUN R -e "install.packages('data.table', 'gridExtra', 'XML', 'reshape2', 'plyr', 'RSQLite')"
+
