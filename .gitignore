@@ -12,6 +12,9 @@ figures/*.png
 figures/*.pdf
 figures/*.html
 
+.config/
+source_data/
+
 tagged_reports/*
 
 report.pdf 
