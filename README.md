@@ -12,10 +12,19 @@ are being introduced all the time. These changes mean that our understanding of 
 failure may be changing as well. So what are the *current* drivers of mortality in this population? 
 
 ### Dataset
-This project uses MIMIC-IV. This is a retrospectively collected datasource containing EHR data from 
-Beth Israel Deaconess Medical Center (BIDMC). 
-You can obtain more information on it here: physionet.org/content/mimiciv/0.4/
-and https://mimic-iv.mit.edu/docs/overview/concepts/.
+This project uses MIMIC-IV. This is a retrospectively collected datasource containing electronic
+health record (EHR) data from Beth Israel Deaconess Medical Center (BIDMC). These data are deidentified
+records with information on patient experiences in the ICU. This analysis will use a subset of 
+this data restricted to patients who are admitted with a heart failure diagnosis. MIMIC-IV is
+an excellent data source to examine the risk factors predicting heart failure since physicians
+have more and more been using and relying on their respective EHR systems to document patient diagnostics
+and histories. Additionally, this data system has access to all the lab results and procedures that
+patients received during their hospitalization.
+
+The data are fairly large, particularly the chart events, so make sure you have sufficient storage
+to manipulate this data. You can obtain more information on the data here: 
+https://physionet.org/content/mimiciv/0.4/ 
+https://mimic-iv.mit.edu/docs/overview/concepts/
 
 Citations:
 Johnson, A., Bulgarelli, L., Pollard, T., Horng, S., Celi, L. A., & Mark, R. (2020). MIMIC-IV (version 0.4). 
@@ -27,7 +36,8 @@ physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
 
 You will need to request a DUA to access this data. 
 
-
+Given the size of the data, the primary heart failure dataset will be set-up using sqlite, which is
+included in the Dockerfile. Further details are included in the sqlcode folder.
 This analysis will be conducted in Rstudio, for which the script is contained in Analysis.R.
 
 ### Preliminary figures
