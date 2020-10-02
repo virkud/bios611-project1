@@ -38,7 +38,7 @@ You will need to request a DUA to access this data.
 
 Given the size of the data, the primary heart failure dataset will be set-up using sqlite, which is
 included in the Dockerfile. Further details are included in the sqlcode folder.
-This analysis will be conducted in Rstudio, for which the script is contained in Analysis.R.
+This analysis will be conducted in Rstudio, for which the scripts are included in this git repository.
 
 ### Preliminary figures
 Age and sex among heart failure ICU patients compared with all other ICU patients.
@@ -46,7 +46,6 @@ Age and sex among heart failure ICU patients compared with all other ICU patient
 
 The above figure shows that there are a range of patients captures in this dataset, but most
 are older adults.
-
 ![](assets/hf_age_sex.png)
 
 Most heart failure patients are older adults. Many more individuals in the highest age group (91) are female
@@ -64,7 +63,8 @@ Then connect to the mahcine on port 8787.
 
 Makefile
 --------
-The Makefile included in this repository will help get a feel of the project. 
+The Makefile included in this repository will help build major components
+ of the project. 
 
 For example, to build figures relating to the distribution of ICU visits due to heart failure over 
 age and gender, enter via Docker or with Rstudio and say:
