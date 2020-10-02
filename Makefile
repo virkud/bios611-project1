@@ -6,10 +6,10 @@ clean:
 	
 figures/all_age_sex.png\
 	figures/hf_age_sex.png:\
-	Analysis.R\
+	pop_pyramids.R\
 	derived_data/hf_dem.csv\
 	derived_data/all_dem.csv
-		Rscript Analysis.R
+		Rscript pop_pyramids.R
 
 assets/hf_age_sex.png: figures/hf_age_sex.png
 	cp figures/hf_age_sex.png assets/hf_age_sex.png
