@@ -12,6 +12,12 @@ figures/*.png
 figures/*.pdf
 figures/*.html
 
+.ne/
+.sqlite_history
+
+chartevents
+select
+
 .config/
 source_data/
 
