@@ -4,5 +4,4 @@ RUN apt update -y && apt install -y \
 	ne\
 	sqlite3
 RUN R -e "install.packages('data.table')"
-RUN R -e "install.packages('gridExtra')"
 
