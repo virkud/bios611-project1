@@ -1,0 +1,103 @@
+---
+title: "HW4_Virkud"
+author: "Arti Virkud"
+date: "10/7/2020"
+output: pdf_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.height=4, fig.width=6, warning = F)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, randomForest, tree, ISLR, rpart, rattle, pROC, partykit, ggplot2, glmnet, leaps, dplyr, gbm, caret, pROC, Rtsne)
+```
+
+## Datasetup
+```{r, include=FALSE}
+data <- read_csv("~/bios611-project1/hw4/source_data/kaggle.csv")
+dat <- data %>% mutate(female = if_else(Gender=="Female",1,0)) %>% select(-Gender, -Index)
+```
+
+## Problem 1:
+Build a glm in R to classifier individuals as either Male or Female based on their weight and height.
+```{r, include=FALSE}
+set.seed(2020)
+N <- length(dat$female)
+index.train <- sample(N, N*2/3)
+dat.train <- dat[index.train,]
+dat.test <- dat[-index.train,]
+model1 <- glm(female ~ Height + Weight, data=dat.train)
+```
+What is the accuracy of the model?
+```{r}
+dat.test$model_prob <- predict(model1, dat.test, type = "response")
+dat.test2 <- dat.test  %>% mutate(model_pred = 1*(model_prob > .50) + 0)
+dat.test3 <- dat.test2 %>% mutate(accurate = 1*(model_pred == female))
+sum(dat.test3$accurate)/nrow(dat.test3)
+```
+## Problem 2:
+Use the 'gbm' package to train a similar model. Don't worry about hyper parameter tuning for now.
+```{r, include=FALSE}
+set.seed(2020)
+N <- length(dat$female)
+index.train <- sample(N, N*2/3)
+dat.train <- dat[index.train,]
+dat.test <- dat[-index.train,]
+model2 <- gbm(female ~ Height + Weight, data=dat.train)
+```
+What is the accuracy of the model?
+```{r}
+dat.test$model_prob2 <- predict(model2, dat.test, type = "response")
+dat.test2 <- dat.test  %>% mutate(model_pred2 = 1*(model_prob2 > .50) + 0)
+dat.test3 <- dat.test2 %>% mutate(accurate2 = 1*(model_pred2 == female))
+sum(dat.test3$accurate2)/nrow(dat.test3)
+```
+The accuracy is 47.9%.
+
+## Problem 3
+Filter the data set so that it contains only 50 Male examples. Create a new model for this data set. What is the F1 Score of the model?
+```{r, include=FALSE}
+set.seed(2020)
+ftr_male <- dat %>% filter(female==0) %>% slice_sample(n=50)
+ftr_female <- dat %>% filter(female==1)
+ftr <- rbind(ftr_male, ftr_female)
+N <- length(ftr$female)
+index.train <- sample(N, N*2/3)
+ftr.train <- ftr[index.train,]
+ftr.test <- ftr[-index.train,]
+model3 <- glm(female ~ Height + Weight, data=ftr.train)
+
+ftr.test$model_prob <- predict(model3, ftr.test, type = "response")
+ftr.test2 <- ftr.test  %>% mutate(pred = 1*(model_prob > .50) + 0)
+confusionMatrix(data=as.factor(ftr.test2$pred), reference=as.factor(ftr.test2$female), mode = "prec_recall")
+f1=88/(88+0.5*(14))
+```
+The F1 score is 0.926.
+##Problem 4
+For the model in the previous example plot an ROC curve. What does this ROC curve mean?
+```{r}
+fit.roc <- roc(ftr.train$female, model3$fitted)
+plot(1-fit.roc$specificities, fit.roc$sensitivities, col="black", pch=16,type="l",
+     xlab=paste("1 - Specificity AUC:",
+                round(pROC::auc(fit.roc),4)
+                ), 
+     ylab="Sensitivity")
+title("ROC of Model 3 with only 50 males")
+```
+
+The ROC curve shows the values for the sensitivity (true positive rate, or what proportion of the positive values are correctly identified as positive) and 1 - specificity (taken together, this is also known as the false positive rate, or the proportion of true negatives that are predicted as positive) for different threshold values. We cannot tell which threshold produced each combination of sensitivity and specificity plotted above. An ideal model would be one that correctly identifies all positive value and all negative values (which would be when sensitivity = 1 and 1 - specificity = 0). As such, “better” models will be ones that are closer to the lefthand corner of the graph. Another way of examining is to calcultae the area under the curve. The closer AUC is to 1, the "better" the model. 
+
+This indicates that this model performs slightly better than random guessing.
+
+##Problem 5
+Using K-Means, cluster the same data set. Can you identify the clusters with the known labels? Provide an interpretation of this result.
+```{r}
+dat2 <- data %>% mutate(female = if_else(Gender=="Female",1,0)) %>% select(-Gender, -Index) %>% distinct()
+set.seed(0)
+cluster <- kmeans(x=dat2,4) 
+fit <- Rtsne(dat2, dims = 2)
+ggplot(fit$Y %>% as.data.frame() %>% as_tibble() %>% mutate(label=cluster$cluster),aes(V1,V2)) +
+    geom_point(aes(color=factor(label)))
+cluster$centers
+```
+
+The six clusters are distinct with no delineation by male and female (all the cluster centers are close to ~0.5). The clusters seem to distinguish by groups of individuals who are above average height and below average weight (cluster 1), below average height and weight (cluster 2), above average height and weight (cluster 3), and average height and above average weight (cluster 4). 
