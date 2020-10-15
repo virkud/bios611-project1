@@ -12,6 +12,10 @@ figures/*.png
 figures/*.pdf
 figures/*.html
 
+
+report.log
+report.tex
+
 .ne/
 .sqlite_history
 
