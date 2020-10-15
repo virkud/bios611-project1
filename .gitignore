@@ -12,6 +12,11 @@ figures/*.png
 figures/*.pdf
 figures/*.html
 
+hw4/hw4_virkud.log
+hw4/hw4_virkud.tex
+hw4/hw4_virkud.utf8.md
+hw4/hw4_virkud_files/
+report.synctex.gz
 
 report.log
 report.tex
