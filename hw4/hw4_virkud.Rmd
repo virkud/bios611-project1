@@ -19,7 +19,7 @@ dat <- data %>% mutate(female = if_else(Gender=="Female",1,0)) %>% select(-Gende
 
 ## Problem 1:
 Build a glm in R to classifier individuals as either Male or Female based on their weight and height.
-```{r, include=FALSE}
+```{r}
 set.seed(2020)
 N <- length(dat$female)
 index.train <- sample(N, N*2/3)
@@ -37,7 +37,7 @@ sum(dat.test3$accurate)/nrow(dat.test3)
 The accuracy is 46.1%.
 ## Problem 2:
 Use the 'gbm' package to train a similar model. Don't worry about hyper parameter tuning for now.
-```{r, include=FALSE}
+```{r}
 set.seed(2020)
 N <- length(dat$female)
 index.train <- sample(N, N*2/3)
@@ -56,7 +56,7 @@ The accuracy is 47.9%.
 
 ## Problem 3
 Filter the data set so that it contains only 50 Male examples. Create a new model for this data set. What is the F1 Score of the model?
-```{r, include=FALSE}
+```{r}
 set.seed(2020)
 ftr_male <- dat %>% filter(female==0) %>% slice_sample(n=50)
 ftr_female <- dat %>% filter(female==1)
