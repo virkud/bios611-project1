@@ -13,7 +13,7 @@ pacman::p_load(tidyverse, randomForest, tree, ISLR, rpart, rattle, pROC, partyki
 
 ## Datasetup
 ```{r, include=FALSE}
-data <- read_csv("~/bios611-project1/hw4/source_data/kaggle.csv")
+data <- read_csv("~/hw4/source_data/kaggle.csv")
 dat <- data %>% mutate(female = if_else(Gender=="Female",1,0)) %>% select(-Gender, -Index)
 ```
 
@@ -34,6 +34,7 @@ dat.test2 <- dat.test  %>% mutate(model_pred = 1*(model_prob > .50) + 0)
 dat.test3 <- dat.test2 %>% mutate(accurate = 1*(model_pred == female))
 sum(dat.test3$accurate)/nrow(dat.test3)
 ```
+The accuracy is 46.1%.
 ## Problem 2:
 Use the 'gbm' package to train a similar model. Don't worry about hyper parameter tuning for now.
 ```{r, include=FALSE}
@@ -69,12 +70,13 @@ model3 <- glm(female ~ Height + Weight, data=ftr.train)
 ftr.test$model_prob <- predict(model3, ftr.test, type = "response")
 ftr.test2 <- ftr.test  %>% mutate(pred = 1*(model_prob > .50) + 0)
 confusionMatrix(data=as.factor(ftr.test2$pred), reference=as.factor(ftr.test2$female), mode = "prec_recall")
-f1=88/(88+0.5*(14))
+f1=87/(87+0.5*(15))
 ```
-The F1 score is 0.926.
+The F1 score is 0.921.
 ##Problem 4
 For the model in the previous example plot an ROC curve. What does this ROC curve mean?
 ```{r}
+set.seed(2020)
 fit.roc <- roc(ftr.train$female, model3$fitted)
 plot(1-fit.roc$specificities, fit.roc$sensitivities, col="black", pch=16,type="l",
      xlab=paste("1 - Specificity AUC:",
@@ -86,7 +88,7 @@ title("ROC of Model 3 with only 50 males")
 
 The ROC curve shows the values for the sensitivity (true positive rate, or what proportion of the positive values are correctly identified as positive) and 1 - specificity (taken together, this is also known as the false positive rate, or the proportion of true negatives that are predicted as positive) for different threshold values. We cannot tell which threshold produced each combination of sensitivity and specificity plotted above. An ideal model would be one that correctly identifies all positive value and all negative values (which would be when sensitivity = 1 and 1 - specificity = 0). As such, “better” models will be ones that are closer to the lefthand corner of the graph. Another way of examining is to calcultae the area under the curve. The closer AUC is to 1, the "better" the model. 
 
-This indicates that this model performs slightly better than random guessing.
+This indicates that this model performs better than random guessing.
 
 ##Problem 5
 Using K-Means, cluster the same data set. Can you identify the clusters with the known labels? Provide an interpretation of this result.
