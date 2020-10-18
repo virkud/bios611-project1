@@ -9,4 +9,7 @@ alias hcb='docker run -v `pwd`:/host -it p1-env hovercraft /host/slides.rst /hos
 alias r='docker run -v `pwd`:/home/rstudio -e PASSWORD=yougotthis -it p1-env sudo -H -u rstudio /bin/bash -c "cd ~/; R"'
 alias b='docker run -v `pwd`:/home/rstudio -e PASSWORD=yougotthis -it p1-env sudo -H -u rstudio /bin/bash -c "cd ~/; /bin/bash"'
 
-alias gits='ssh-agent bash; ssh-add ~/storage/example-keys/id_rsa'
+alias g1='ssh-agent bash'
+alias g2='ssh-add ~/storage/example-keys/id_rsa'
+alias g3='git config --global user.email "avirkud@unc.edu"'
+alias g4='git config --global user.name "Arti Virkud"'
