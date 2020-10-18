@@ -1,5 +1,6 @@
 FROM rocker/verse
 MAINTAINER Arti Virkud <virkud@mit.edu>
+ARG linux_user_pwd
 RUN R -e "install.packages('data.table')"
 RUN R -e "install.packages('gbm')"
 RUN R -e "install.packages('caret')"
@@ -11,4 +12,5 @@ RUN adduser rstudio sudo
 RUN apt update -y && apt install -y\
         ne\
         sqlite3\
-        texlive-latex-base
+        texlive-latex-base\
+	texlive-latex-extra
