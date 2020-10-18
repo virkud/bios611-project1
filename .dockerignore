@@ -1,0 +1,4 @@
+source_data/
+derived_data/
+.cache
+.rstudio
