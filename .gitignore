@@ -21,6 +21,12 @@ report.synctex.gz
 report.log
 report.tex
 
+.ssh/
+.sudo_as_admin_successful
+.wget-hsts
+report.aux
+
+
 .ne/
 .sqlite_history
 
