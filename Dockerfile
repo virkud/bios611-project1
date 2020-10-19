@@ -13,4 +13,4 @@ RUN apt update -y && apt install -y\
         ne\
         sqlite3\
         texlive-latex-base\
-	texlive-latex-extra
+        texlive-latex-extra
