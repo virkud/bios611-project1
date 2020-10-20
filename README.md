@@ -75,6 +75,7 @@ Primary questions
 -----------------
 The primary question is to identify and characterize features in heart failure 
 patients.
+
 Completition criterion
 ----------------------
 I want to understand the heart failure patients in this datasets.
