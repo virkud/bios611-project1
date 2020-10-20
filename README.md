@@ -73,18 +73,8 @@ age and gender, enter via Docker or with Rstudio and say:
 
 Primary questions
 -----------------
-The primary question is to identify and characterize features predictive of mortality in heart failure 
-patients. This will be conducted in two steps: 
-
-1) We will examine a variety of features (demographic information, medications, and lab results) to 
-identify predictors of mortality in this patient poulation using logistic regression, LASSO, 
-and Elastic Net.
-
-2) We will characterize propensity scores for medications identified in the first step using logistic 
-regression and Random forest. 
-
-
+The primary question is to identify and characterize features in heart failure 
+patients.
 Completition criterion
 ----------------------
-I want to fully understand the heart failure patients in this dataset and identify a preferred method 
-to identify predictors and to calculate propensity scores.
+I want to understand the heart failure patients in this datasets.
