@@ -6,6 +6,13 @@ clean:
 	rm -f figures/*.png
 	rm -f report.pdf
 
+report.pdf:\
+ report.tex\
+ figures/hf_age_sex.png\
+ figures/all_age_sex.png\
+ figures/all_age_sex_new.png
+	pdflatex report.tex
+
 derived_data/hf_dem.csv\
 derived_data/all_dem.csv:\
  Datasetup.R\
