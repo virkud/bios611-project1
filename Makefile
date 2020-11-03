@@ -1,4 +1,5 @@
 .PHONY: clean
+.PHONY: power_explorer
 SHELL: /bin/bash
 
 clean:
@@ -10,10 +11,21 @@ report.pdf:\
  report.tex\
  figures/hf_age_sex.png\
  figures/all_age_sex.png\
- figures/all_age_sex_new.png
+ figures/all_age_sex_new.png\
+ figures/eth_sex.png
 	pdflatex report.tex
 
+simreport.pdf:\
+ simreport.tex\
+ figures/hf_age_sex.png\
+ figures/all_age_sex.png\
+ figures/all_age_sex_new.png\
+ figures/eth_sex.png
+	pdflatex report.tex
+	
 derived_data/hf_dem.csv\
+derived_data/hf_pred.csv\
+derived_data/hf_rx.csv\
 derived_data/all_dem.csv:\
  Datasetup.R\
  source_data/patients.csv\
@@ -23,8 +35,12 @@ derived_data/all_dem.csv:\
  source_data/d_items.csv\
  source_data/prescriptions.csv
 	Rscript Datasetup.R
+
+power_explorer: derived_data/hf_rx.csv
+	Rscript power_explorer.R ${PORT}
 	
 figures/all_age_sex.png\
+figures/hf_age_sex_new.png\
 figures/hf_age_sex.png:\
  pop_pyramids.R\
  derived_data/hf_dem.csv\
