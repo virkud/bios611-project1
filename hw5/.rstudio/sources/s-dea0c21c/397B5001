@@ -1,0 +1,32 @@
+{
+    "id": "397B5001",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1604335279910.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "expression": "q1dset",
+        "caption": "q1dset",
+        "totalObservations": 10000,
+        "displayedObservations": 10000,
+        "variables": 3,
+        "cacheKey": "E09C5F10",
+        "object": "q1dset",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=q1dset&cache_key=E09C5F10&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7812726532189942318,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1604335279910,
+    "read_only": false,
+    "read_only_alternatives": []
+}
