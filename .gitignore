@@ -19,7 +19,6 @@ hw4/hw4_virkud_files/
 report.synctex.gz
 
 report.log
-report.tex
 
 .ssh/
 .sudo_as_admin_successful
@@ -37,8 +36,6 @@ select
 source_data/
 
 tagged_reports/*
-
-report.pdf 
 
 .lesshst
 
