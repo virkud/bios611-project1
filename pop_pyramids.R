@@ -1,6 +1,4 @@
 library(tidyverse)
-library(dplyr)
-library(ggplot2)
 
 hf_pat <-  read_csv("derived_data/hf_dem.csv")
 all_pat <- read_csv("derived_data/all_dem.csv")
