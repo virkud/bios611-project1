@@ -1,4 +1,3 @@
-
 # Table of Contents
 
 1.  [Q1](#org0f04966)
@@ -33,12 +32,17 @@ Using the data set available here:
 1.  Examine the dataset for any irregularities. Make the case for
     filtering out a subset of rows (or for not doing so).
 
-Information on good/bad alignment is missing for three observations. 
+Information on good/bad alignment is missing for three observations. Several characters have no power, and only 
+"1" for all other powers. I am going to keep these observations, because they seem to have something in common,
+which is still helpful in the PCA analysis. There is one duplicated name, but I won't filter them out because
+the powers are different. Finally, there are three superheroes (Anti-Venom, Blackwulf, and Trickster) who are 
+missing data on alignment. We will remove them since we'll need information on Alignment for question 3.
 
 2.  Perform a principal component analysis on the numerical columns of
     this data. How many components do we need to get 85% of the
     variation in the data set?
 We need two components to get 85% of the variation.
+
 3.  Do we need to normalize these columns or not?
 We can normalize these columns. In this setting, normalizing assumes that each column are equally important in contributing.
 
@@ -46,10 +50,13 @@ We can normalize these columns. In this setting, normalizing assumes that each c
     columns?
 The total column is a total of the values in Intelligence, Strength, Speed,
 Durability, Power, and Combat.
+
 5.  Should we have included in in the PCA? What do you expect
     about the largest principal components and the total column?
     Remember, a given principal component corresponds to a weighted
     combination of the original variables.
+Including Total is redudant, since it is a summation of all of the other
+powers. The largest principal components 
 6.  Make a plot of the two largest components. Any insights?
 ![](pca.png)
 
@@ -71,9 +78,6 @@ R. In R, plot the results.
 
 Color each point by the alignment of the associated character. Any
 insights?
-
-See the aliases file in Lecture 16 for how to launch your Jupyter Lab.
-
 
 <a id="org61f5d14"></a>
 
@@ -119,4 +123,6 @@ Describe in words the process of recursive feature elimination.
 
 Recursive feature elimination is a feature selection process where
 you start with all available features, and then iteratively remove features.
-Features are removed ("pruned") 
+Features are removed ("pruned") based on some estimator of feature
+importance. Features that are "less important" based on the estimator are
+removed iteratively.
