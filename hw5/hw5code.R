@@ -28,17 +28,24 @@ c(sum((test$female.p>0.5)==test$female)/nrow(test),
 
 #Examine the dataset for any irregularities. 
 #Make the case for filtering out a subset of rows (or for not doing so).
+summary(q2dset)
+count
+q2dset %>% group_by(Alignment) %>% tally()
+q2dset %>% group_by(Name) %>% 
+  filter(n()>1)
+missing<-q2dset %>% filter(is.na(Alignment))
+q2dset2<-q2dset %>% filter(!is.na(Alignment))  
 #Perform a principal component analysis on the numerical columns of this data.
 #How many components do we need to get 85% of the variation in the data set?
-pca <- prcomp(q2dset%>% select(-Name,-Alignment,-Total))
-pca <- prcomp(q2dset %>% select(-Name,-Alignment), center = TRUE,scale. = TRUE)
+pca <- prcomp(q2dset2%>% select(-Name,-Alignment,-Total))
+pca <- prcomp(q2dset2 %>% select(-Name,-Alignment), center = TRUE,scale. = TRUE)
 summary(pca)
 #Do we need to normalize these columns or not?
 #Is the "total" column really the total of the values in the other columns?
-discrep <- q2dset %>% mutate(test=Total-Intelligence-Strength-Speed-Durability-Power
+discrep <- q2dset2 %>% mutate(test=Total-Intelligence-Strength-Speed-Durability-Power
                              -Combat) %>% filter(test>0)
 #Should we have included in the PCA? What do you expect about the largest principal components and the total column? Remember, a given principal component corresponds to a weighted combination of the original variables.
-pca2 <- prcomp(q2dset %>% select(-Name,-Alignment,-Total), center = TRUE,scale. = TRUE)
+pca2 <- prcomp(q2dset2 %>% select(-Name,-Alignment,-Total), center = TRUE,scale. = TRUE)
 summary(pca2)
 #Make a plot of the two largest components. Any insights?
 transformed <- do.call(rbind, Map(function(row){
