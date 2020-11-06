@@ -1,5 +1,9 @@
 .local/*
 .rstudio/*
+.ipython/
+.jupyter/
+tatus
+
 .bash_history
 
 .gitconfig
