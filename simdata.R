@@ -21,15 +21,15 @@ death = rbinom(11981,1,0.02863)
 #rnorm(n = 6, mean = 0, sd = 1)
 #Create all_dem.csv
 sim_all_dem <- data.frame(subject_id, gender=gender[1:11981], anchor_age=anchor_age1[1:11981])
-write_csv(sim_all_dem, "derived_data/all_dem.csv")
+write_csv(sim_all_dem, "derived_data/sim_all_dem.csv")
 #Create hf_dem.csv
 sim_hf_dem <- data.frame(subject_id, gender=gender[1:11981], anchor_age=anchor_age2, 
                          language=language[1:11981], 
            marital_status=marital_status[1:11981], ethnicity=ethnicity[1:11981])
-write_csv(sim_hf_dem, "derived_data/hf_dem.csv")
+write_csv(sim_hf_dem, "derived_data/sim_hf_dem.csv")
 #Create hf_pred.csv
 sim_hf_pred <- data.frame(subject_id, gender=gender[1:11981], anchor_age=anchor_age2, 
                           language=language[1:11981], marital_status=marital_status[1:11981], 
                           ethnicity= ethnicity[1:11981], Aspirin, Statin,
            Loop, Insulin, Nitroglycerin, Warfarin, death)
-write_csv(sim_hf_pred, "derived_data/hf_pred.csv")
+write_csv(sim_hf_pred, "derived_data/sim_hf_pred.csv")
