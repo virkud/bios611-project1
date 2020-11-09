@@ -91,9 +91,11 @@ age and gender, enter via Docker or with Rstudio and say:
 
 	> make figures/hf_age_sex.png
 
-To build the report, you need to build in bash, not Rstudio terminal, using the follow:
+To build the report, you need to build in bash, not Rstudio terminal, using the following:
 
 	> make pdflatex report.tex
+
+You can use alias "b" in aliases.sh to enter a docker instance through bash. 
 
 Primary questions
 -----------------
