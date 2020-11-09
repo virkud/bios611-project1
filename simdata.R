@@ -9,7 +9,7 @@ language=rep(c("English","?"), each = 5991)
 marital_status = rep(c("DIVORCED","MARRIED", "SINGLE", "WIDOWED",""), each = 3000)
 ethnicity = rep(c("AMERICAN INDIAN/ALASKA NATIVE","ASIAN", "BLACK/AFRICAN AMERICAN",
                   "HISPANIC/LATINO","OTHER","UNABLE TO OBTAIN", "UNKNOWN",
-                  "UNKNOWN"), each=2995)
+                  "WHITE"), each=1498)
 Aspirin = rbinom(11981,1,0.8218)
 Statin = rbinom(11981,1,0.78)
 Loop = rbinom(11981,1,0.9144)
