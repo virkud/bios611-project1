@@ -7,15 +7,15 @@
 \date{October 19, 2020}
 \maketitle
 \section{Introduction and Data Source}
-This report described the examination of heart failure patients in the MIMIC-IV dataset. The MIMIC-IV dataset has served as an important date for multiple machine learning efforts in the field of health care.\\
+This report describes the examination of heart failure patients in a simulated MIMIC-IV dataset. The MIMIC-IV dataset has served as an important date for multiple machine learning efforts in the field of health care.\\
 \\
 MIMIC-IV is a retrospectively collected datasource containing electronic health record (EHR) data from Beth Israel Deaconess Medical Center (BIDMC). These data are deidentified records with information on patient experiences in the ICU. This analysis will use a subset of this data restricted to patients who are admitted with a heart failure diagnosis. MIMIC-IV is an excellent data source to examine the risk factors predicting heart failure since physicians have more and more been using and relying on their respective EHR systems to document patient diagnostics and histories. Additionally, this data system has access to all the lab results and procedures that patients received during their hospitalization.\\
 \\
 A relevant quote from the MIMIC-IV website: "In recent years there has been a concerted move towards the adoption of digital health record systems in hospitals. In the US, nearly 96\% of hospitals had a digital electronic health record (EHR) in 2015. Retrospectively collected medical data has increasingly been used for epidemiology and predictive modeling. The latter is in part due to the effectiveness of modeling approaches on large datasets"
 \section{Objective}
-The goal of this project is to characterize the features of heart failure patients in this the MIMIC-IV dataset. One of the original goals of this project was to predict mortality. In exploring the data, it was identified that many patients are missing death information since death certificates are no longer linked to this data source. 
+The goal in this report is to simulate the MIMIC-IV dataset to demonstrate how features of heart failure patients in the dataset may be characterized. One of the original goals of this project was to predict mortality. In exploring the data, it was identified that many patients are missing death information since death certificates are no longer linked to this data source. 
 \section{Methods}
-Data were formatted and merged in Datasetup.R. Race/ethnicity, language, insurance, and marital status details were obtained from their most recent hospitalization. 
+Data were setup in simdata.R. Race/ethnicity, language, insurance, and marital status details were obtained from their most recent hospitalization. 
 \section{Results}
 \includegraphics[width=0.5\textwidth]{figures/all_age_sex.png}\\
 \includegraphics[width=0.5\textwidth]{figures/hf_age_sex.png}\\
