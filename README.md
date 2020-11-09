@@ -71,8 +71,8 @@ Using aliases.sh requires that you have a local secret.sh file with a line in it
 
 It should look like this:
 
-  > #!/bin/bash 
-  > export SECRET_PWD=<somepasswordyoucreate>
+	  > #!/bin/bash 
+	  > export SECRET_PWD=<somepasswordyoucreate>
 
 Use the below instructions to use the Makefile to make the targets in this repository, primarily the report (report.tex).
 
