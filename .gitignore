@@ -4,6 +4,8 @@
 .jupyter/
 tatus
 
+secret.sh
+
 .bash_history
 
 .gitconfig
