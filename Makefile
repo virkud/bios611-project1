@@ -1,5 +1,5 @@
 .PHONY: clean
-.PHONY: power_explorer
+.PHONY: shiny_app
 SHELL: /bin/bash
 
 clean:
@@ -44,6 +44,11 @@ derived_data/sim_all_dem.csv:\
 	
 power_explorer: derived_data/hf_rx.csv
 	Rscript power_explorer.R ${PORT}
+
+derived_data/s_app.csv:\
+ derived_data/hf_rx.csv\
+ shiny_app_pre.R
+	Rscript shiny_app_pre.R
 
 figures/sim_all_age_sex.png\
 figures/sim_hf_age_sex_new.png\
