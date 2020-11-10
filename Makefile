@@ -41,9 +41,11 @@ derived_data/sim_hf_pred.csv\
 derived_data/sim_all_dem.csv:\
  simdata.R
 	Rscript simdata.R
-	
-power_explorer: derived_data/hf_rx.csv
-	Rscript power_explorer.R ${PORT}
+
+shiny_app:\
+ derived_data/s_app.csv\
+ shiny_app.R
+	Rscript shiny_app.R ${PORT}
 
 derived_data/s_app.csv:\
  derived_data/hf_rx.csv\
