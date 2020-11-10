@@ -1,0 +1,64 @@
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#    http://shiny.rstudio.com/
+
+library(shiny)
+library(tidyverse)
+library(plotly)
+
+#args <- commandArgs(trailingOnly=T);
+#port <- as.numeric(args[[1]]);
+
+data <- read_csv("derived_data/s_app.csv")
+drugs <- data$drug %>% unique() %>% sort();
+
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("Commonly prescribed medications among Heart Failure patients"),
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput(inputId = "bins",
+                        label = "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30),
+            
+            selectInput(inputId = "drug",
+                        label="Select Drug",
+                        choices=drugs)
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+            # Output: Histogram ----
+            plotlyOutput(outputId = "distPlot")
+        )
+    )
+)
+
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+    output$distPlot <- renderPlotly({
+        rx <- input$drug
+        ct <- data %>% filter(drug==rx) %>% group_by(subject_id) %>% dplyr::tally(subject_id)
+        app <- data %>% filter(drug==rx) %>% group_by(subject_id) %>% dplyr::slice(1) %>% select(-hadm_id) %>%
+            left_join(.,ct)
+        ggplotly(ggplot(data, aes(subject_id))+geom_histogram(bins=input$bins))
+        
+    })
+    
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+#print(sprintf("Starting shiny on port %d", port));
+#shinyApp(ui = ui, server = server, options = list(port=port,
+#                                                 host="0.0.0.0"));
