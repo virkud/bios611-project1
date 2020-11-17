@@ -136,4 +136,6 @@ patients. We will:
 Completition criterion
 ----------------------
 I want to understand the heart failure patients in this datasets and identify a preferred method to identify
-predictors and to calculate propensity scores.
+predictors and to calculate propensity scores. The current status of tihs work is to examine why the logistic
+regression classifier has low accuracy. The current theories are that the classifier requires more variables
+or logisitic regression is not powerful enough to classify in a setting where the outcome is rare.
