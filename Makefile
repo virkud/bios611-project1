@@ -2,11 +2,13 @@
 .PHONY: shiny_app
 SHELL: /bin/bash
 
+#This clean action removes any existing datasets, figures or reports generated in this Makefile
 clean:
 	rm -f derived_data/*.csv
 	rm -f figures/*.png
 	rm -f report.pdf
 
+#The final report for this project
 report.pdf:\
  report.tex\
  figures/hf_age_sex.png\
@@ -15,6 +17,7 @@ report.pdf:\
  figures/eth_sex.png
 	pdflatex report.tex
 
+#The final report using simulated data for this project
 simreport.pdf:\
  simreport.tex\
  figures/sim_hf_age_sex.png\
@@ -22,7 +25,8 @@ simreport.pdf:\
  figures/sim_all_age_sex_new.png\
  figures/sim_eth_sex.png
 	pdflatex simreport.tex
-	
+
+#All the datasets needed for this project
 derived_data/hf_dem.csv\
 derived_data/hf_pred.csv\
 derived_data/hf_rx.csv\
@@ -36,6 +40,7 @@ derived_data/all_dem.csv:\
  source_data/prescriptions.csv
 	Rscript Datasetup.R
 
+#Code to generate simulated datasets
 derived_data/sim_hf_dem.csv\
 derived_data/sim_hf_pred.csv\
 derived_data/sim_all_dem.csv:\
@@ -47,11 +52,13 @@ shiny_app:\
  shiny_app.R
 	Rscript shiny_app.R ${PORT}
 
+#Derived dataset for the shiny app
 derived_data/s_app.csv:\
  derived_data/hf_rx.csv\
  shiny_app_pre.R
 	Rscript shiny_app_pre.R
 
+#Simulated figures
 figures/sim_all_age_sex.png\
 figures/sim_hf_age_sex_new.png\
 figures/sim_hf_age_sex.png:\
@@ -80,6 +87,7 @@ figures/eth_sex.png:\
  derived_data/all_dem.csv
 	Rscript demographic_stats.R
 
+#Figures for the README.md
 assets/hf_age_sex.png: figures/hf_age_sex.png
 	cp figures/hf_age_sex.png assets/hf_age_sex.png
 
