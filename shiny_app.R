@@ -50,16 +50,13 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-
     output$distPlot <- renderPlotly({
         rx <- input$drug
-        ct <- data %>% filter(drug==rx) %>% group_by(subject_id) %>% dplyr::tally(subject_id)
-        app <- data %>% filter(drug==rx) %>% group_by(subject_id) %>% dplyr::slice(1) %>% select(-hadm_id) %>%
-            left_join(.,ct)
-        ggplotly(ggplot(data, aes(subject_id))+geom_histogram(bins=input$bins))
-        
+        ct <- data %>% filter(drug==rx)
+        ggplotly(ggplot(ct, aes(n))+geom_histogram(aes(fill=gender),
+                                                        position="dodge",
+                                                        bins=input$bins))
     })
-    
 }
 
 # Run the application 
