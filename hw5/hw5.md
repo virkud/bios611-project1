@@ -47,7 +47,7 @@ We need two components to get 85% of the variation.
 
 3.  Do we need to normalize these columns or not?
 
-We can normalize these columns. In this setting, normalizing assumes that each column are equally important in contributing.
+We should normalize these columns. In this setting, normalizing assumes that each column are equally important in contributing.
 
 4.  Is the "total" column really the total of the values in the other
     columns?
@@ -68,6 +68,8 @@ including the total column twice, you essentially get
 6.  Make a plot of the two largest components. Any insights?
 
 ![](pca.png)
+
+Duability and Spped 
 
 <a id="org51a4194"></a>
 
@@ -110,13 +112,19 @@ don't forget to read the Caret docs.
 
 ![](gbm_q5.png)
 
+The order for the figure above from top to bottom:
+Intelligence
+Strength
+Combat
+Speed
+Durability
+Power
+
 The plot above demonstrates that Intelligence has the greatest
 influence on alignment, followed by strength and combat. Power has the
 least influence. This is makes a lot of inuitive sense, since we 
 would expect strength and combat to be comparable chracteristics,
-and that regardless of your alignment, y
-
-
+and that regardless of your alignment, you would need to be powerful.
 
 <a id="org870b507"></a>
 
