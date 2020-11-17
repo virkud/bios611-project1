@@ -20,7 +20,8 @@ With the data set given here:
 Repeat your GBM model. Contrast your results with the results for the
 previous exercise.
 
-
+This gradient boosting model is able to correctly predict gender 90.6% of the time. Compared to the gradient boosting model
+in the previous question, it is much better, particularly since the dataset is not randomly generated, and there are 
 <a id="org6a81eeb"></a>
 
 # Q2
@@ -41,13 +42,16 @@ missing data on alignment. We will remove them since we'll need information on A
 2.  Perform a principal component analysis on the numerical columns of
     this data. How many components do we need to get 85% of the
     variation in the data set?
+
 We need two components to get 85% of the variation.
 
 3.  Do we need to normalize these columns or not?
+
 We can normalize these columns. In this setting, normalizing assumes that each column are equally important in contributing.
 
 4.  Is the "total" column really the total of the values in the other
     columns?
+
 The total column is a total of the values in Intelligence, Strength, Speed,
 Durability, Power, and Combat.
 
@@ -55,9 +59,14 @@ Durability, Power, and Combat.
     about the largest principal components and the total column?
     Remember, a given principal component corresponds to a weighted
     combination of the original variables.
+
 Including Total is redudant, since it is a summation of all of the other
-powers. The largest principal components 
+powers. The largest principal components should be the greatest contributor
+to the total column, and have the greatest influence on this variable. By
+including the total column twice, you essentially get 
+
 6.  Make a plot of the two largest components. Any insights?
+
 ![](pca.png)
 
 <a id="org51a4194"></a>
@@ -98,6 +107,15 @@ determines are best for the model.
 Hints: you want to use the "train" method with the "gbm" method. Use
 "repeatedcv" for the characterization method. If this is confusing,
 don't forget to read the Caret docs.
+
+![](gbm_q5.png)
+
+The plot above demonstrates that Intelligence has the greatest
+influence on alignment, followed by strength and combat. Power has the
+least influence. This is makes a lot of inuitive sense, since we 
+would expect strength and combat to be comparable chracteristics,
+and that regardless of your alignment, y
+
 
 
 <a id="org870b507"></a>
