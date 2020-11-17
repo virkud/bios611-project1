@@ -23,8 +23,12 @@ hw4/hw4_virkud.tex
 hw4/hw4_virkud.utf8.md
 hw4/hw4_virkud_files/
 report.synctex.gz
-
+report.pdf
 report.log
+
+simreport.aux
+simreport.log
+simreport.pdf
 
 .ssh/
 .sudo_as_admin_successful
