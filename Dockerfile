@@ -19,4 +19,5 @@ RUN apt update -y && apt install -y\
 	python3-pip
 
 RUN pip3 install jupyter jupyterlab
-RUN pip3 install numpy pandas sklearn plotnine matplotlib pandasql bokeh
+RUN pip3 install numpy pandas sklearn plotnine matplotlib pandasql bokeh pymatch \
+scipy statsmodels seaborn
