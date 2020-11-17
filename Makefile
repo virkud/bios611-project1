@@ -47,6 +47,13 @@ derived_data/sim_all_dem.csv:\
  simdata.R
 	Rscript simdata.R
 
+#Code to generate LR classifier ROC figure
+figures/Log_ROC.png:\
+ derived_data/hf_pred.csv\
+ LR_classifier.py
+	python3 LR_classifier.py
+
+#Shiny app build
 shiny_app:\
  derived_data/s_app.csv\
  shiny_app.R
