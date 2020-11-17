@@ -8,8 +8,13 @@ library(shiny)
 library(tidyverse)
 library(plotly)
 
-#args <- commandArgs(trailingOnly=T);
-#port <- as.numeric(args[[1]]);
+#drug_table <- list()
+#drug_table[[drug_name]] <- read_csv("")
+#drug_table[["ACet"]]
+#if(is.null(drug_table[["ACet"]])) drug_table["ACet"] <- read_csv("theACETFile")
+
+args <- commandArgs(trailingOnly=T);
+port <- as.numeric(args[[1]]);
 
 data <- read_csv("derived_data/s_app.csv")
 drugs <- data$drug %>% unique() %>% sort();
