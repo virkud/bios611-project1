@@ -115,6 +115,14 @@ Then run shiny app in Rstudio terminal:
 
 To run app in another docker instance, contact the author of this repository. 
 
+Python Code
+-----------
+Aliases.sh is also set up to build a dockter instance for jupyter notebooks ("py"). Once you run this,
+you can build the python dependent code. The jupyter notebook script (.ipynb) is converted to python 
+script (.py) using the following:
+
+	> ipython nbconvert --to=python [NOTEBOOK_NAME].ipynb
+
 Primary questions
 -----------------
 The primary question is to identify and characterize features in heart failure 
