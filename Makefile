@@ -14,6 +14,7 @@ report.pdf:\
  figures/hf_age_sex.png\
  figures/all_age_sex.png\
  figures/all_age_sex_new.png\
+ figures/Log_ROC.png\
  figures/eth_sex.png
 	pdflatex report.tex
 
