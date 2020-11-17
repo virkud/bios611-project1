@@ -69,7 +69,8 @@ including the total column twice, you essentially get
 
 ![](pca.png)
 
-Duability and Spped 
+Duability and Speed seem to have overlapping influence
+similarly Combat and Intelligence are overlappingly clustered.
 
 <a id="org51a4194"></a>
 
