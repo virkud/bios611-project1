@@ -38,7 +38,8 @@ q2dset %>% group_by(Alignment) %>% tally()
 q2dset %>% group_by(Name) %>% 
   filter(n()>1)
 missing<-q2dset %>% filter(is.na(Alignment))
-q2dset2<-q2dset %>% filter(!is.na(Alignment))  
+q2dset2<-q2dset %>% filter(!is.na(Alignment))
+write_csv(q2dset2, "hw5/q2dset2.csv")
 #Perform a principal component analysis on the numerical columns of this data.
 #How many components do we need to get 85% of the variation in the data set?
 pca <- prcomp(q2dset2 %>% select(-Name,-Alignment,-Total))
@@ -63,6 +64,16 @@ p <- ggplot(transformed,aes(x,y)) + geom_point(); p;
 p1 <- ggbiplot(pca2)
 ggsave("hw5/pca.png",plot=p1)
 
+#Q3
+tsne <- read_csv("hw5/tsne.csv") %>% select (-X1)
+tsne$cluster <- as.factor(q2dset2$Alignment)
+p_tsne <- ggplot(tsne %>% as.data.frame() %>% as_tibble() %>% mutate(label=tsne$cluster),aes(x,y)) +
+  geom_point(aes(color=factor(label)))
+ggsave("hw5/rtsneplot.png",plot=p_tsne)
+
+
+
+#Q5
 gbm_align <- train(Alignment ~ Intelligence + Strength + Speed + Durability + Power + Combat, data = q2dset2,
                   method = "gbm", trControl = trainControl(method = "repeatedcv", number = 10, repeats = 10), verbose = FALSE)
 summary(gbm_align)
