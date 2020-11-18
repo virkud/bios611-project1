@@ -21,7 +21,7 @@ Repeat your GBM model. Contrast your results with the results for the
 previous exercise.
 
 This gradient boosting model is able to correctly predict gender 90.6% of the time. Compared to the gradient boosting model
-in the previous question, it is much better, particularly since the dataset is not randomly generated, and there are 
+in the previous question, it is much better, particularly since the dataset is not randomly generated.
 <a id="org6a81eeb"></a>
 
 # Q2
