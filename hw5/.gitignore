@@ -1,3 +1,109 @@
+.local/*
 .rstudio/*
-.local/share/rstudio/*
-.ipynb_checkpoints/*
+.ipython/
+.jupyter/
+tatus
+
+secret.sh
+
+.bash_history
+
+.gitconfig
+.viminfo
+data/
+sshkeys
+sshkeys.pub
+derived_data/*.csv
+figures/*.png
+figures/*.pdf
+figures/*.html
+
+hw5/.ipynb_checkpoints/HW5-checkpoint.ipynb
+hw5/.ipynb_checkpoints/pca-checkpoint.png
+hw5/.ipynb_checkpoints/tsne-checkpoint.csv
+
+hw4/hw4_virkud.log
+hw4/hw4_virkud.tex
+hw4/hw4_virkud.utf8.md
+hw4/hw4_virkud_files/
+report.synctex.gz
+report.pdf
+report.log
+
+simreport.aux
+simreport.log
+simreport.pdf
+
+.ssh/
+.sudo_as_admin_successful
+.wget-hsts
+report.aux
+
+
+.ne/
+.sqlite_history
+
+chartevents
+select
+
+.config/
+source_data/
+
+tagged_reports/*
+
+.lesshst
+
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# network security
+/network-security.data
+
+Rplots.pdf
+.bash_history
+
+fragments/*.tex
+fragments/*.Rmd
