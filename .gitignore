@@ -26,6 +26,14 @@ report.synctex.gz
 report.pdf
 report.log
 
+.cache/
+.ipynb_checkpoints/
+figures/.ipynb_checkpoints/
+
+hw5/.ipynb_checkpoints/pca-checkpoint.png
+hw5/.ipynb_checkpoints/tsne-checkpoint.csv
+hw5/.ipynb_checkpoints/HW5-checkpoint.ipynb
+
 simreport.aux
 simreport.log
 simreport.pdf
