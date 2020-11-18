@@ -91,6 +91,11 @@ R. In R, plot the results.
 Color each point by the alignment of the associated character. Any
 insights?
 
+![](rtsneplot.png)
+
+There seems to be one cluster of predominantly good characters, distinct from
+the other superheroes.
+
 <a id="org61f5d14"></a>
 
 # Q4
@@ -98,6 +103,7 @@ insights?
 Reproduce your plot in Python with plotnine (or the library of your
 choice).
 
+![](pytsneplot.png)
 
 <a id="orgb73f6b4"></a>
 
