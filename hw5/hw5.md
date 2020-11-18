@@ -60,10 +60,11 @@ Durability, Power, and Combat.
     Remember, a given principal component corresponds to a weighted
     combination of the original variables.
 
-Including Total is redudant, since it is a summation of all of the other
+Including Total is redundant, since it is a summation of all of the other
 powers. The largest principal components should be the greatest contributor
 to the total column, and have the greatest influence on this variable. By
-including the total column twice, you essentially get 
+including the total column twice, you essentially add extra weight for
+the largest principal component.
 
 6.  Make a plot of the two largest components. Any insights?
 
