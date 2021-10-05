@@ -25,7 +25,7 @@ simreport.pdf:\
  figures/sim_all_age_sex.png\
  figures/sim_all_age_sex_new.png\
  figures/sim_eth_sex.png
-	pdflatex simreport.tex
+	R -e "tinytex::pdflatex(\"simreport.tex\");"
 
 #All the datasets needed for this project
 derived_data/hf_dem.csv\
@@ -74,13 +74,13 @@ figures/sim_hf_age_sex.png:\
  derived_data/sim_hf_dem.csv\
  derived_data/sim_all_dem.csv
 	Rscript sim_pop_pyramids.R
-		
+
 figures/sim_eth_sex.png:\
  sim_demographic_stats.R\
  derived_data/sim_hf_dem.csv\
  derived_data/sim_all_dem.csv
 	Rscript sim_demographic_stats.R
-	
+
 figures/all_age_sex.png\
 figures/hf_age_sex_new.png\
 figures/hf_age_sex.png:\
@@ -88,7 +88,7 @@ figures/hf_age_sex.png:\
  derived_data/hf_dem.csv\
  derived_data/all_dem.csv
 	Rscript pop_pyramids.R
-		
+
 figures/eth_sex.png:\
  demographic_stats.R\
  derived_data/hf_dem.csv\
