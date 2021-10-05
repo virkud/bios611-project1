@@ -63,15 +63,8 @@ Using This Project
 ------------------
 You will need Docker. You will need to be able to run docker as your current user.
 
-	`docker build . -t project1-env`
-	`docker run -v 'pwd':/home/rstudio -p 8787:8787\
-		 -e PASSWORD=<yourpassword> -t project1-env`
+Create a file `secret.sh` like this:
 
-Then connect to the mahcine on port 8787.
-
-In aliases.sh, there are several aliases to work with the docker file and to set up the git repository.
-#### Aliases
-Using aliases.sh requires that you have a local secret.sh file with a line in it that defines your passwords.
 It should look like this:
 
 	`#!/bin/bash` 
@@ -79,11 +72,20 @@ It should look like this:
 Once you have created the local secret.sh file, run:
 
 	> source aliases.sh
+    
+Then, to run the container, simply run `dr`. This will start a docker container 
+running rstudio on port 8787. If you need to customize the environment edit this command:
 
-Use the below instructions to use the Makefile to make the targets in this repository, primarily the report (report.tex).
+```
+docker run -v `pwd`:/home/rstudio -p 8787:8787 -e PASSWORD=$SECRET_PWD -t p1-env
+```
+
+
+Use the below instructions to use the Makefile to make the
+targets in this repository, primarily the report (report.tex).
 
 If you do not have access to the dataset, but you want to examine the code using a simulated dataset, you can
-build a report "simreport.tex" using the Makefile. Simdata.R creates simulated datasets in the derived_folder.
+build a report "simreport.pdf" using the Makefile. Simdata.R creates simulated datasets in the derived_folder.
 You have to build the latex document using make in bash, not inside the Rstudio terminal.
 
 Makefile
