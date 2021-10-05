@@ -20,4 +20,5 @@ RUN apt update -y && apt install -y\
 
 RUN pip3 install jupyter jupyterlab
 RUN pip3 install numpy pandas sklearn plotnine matplotlib pandasql bokeh pymatch \
-scipy statsmodels seaborn
+        scipy statsmodels seaborn
+RUN R -e "install.packages(\"tinytex\"); tinytex::install_tinytex()"
